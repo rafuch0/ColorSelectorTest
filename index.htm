@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript" src="colors.js"></script>
+	<script src="ICanHaz.min.js"></script>
+	<script src="client.js"></script>
+	<link rel="stylesheet" href="css/normalize.css" />
+	<link rel="stylesheet" href="css/css.css" />
+</head>
+<body>
+
+	<select id="baseColorSelect" onChange="updateColorNames();">
+	</select>
+
+	<select id="colorNamesSelect" onChange="updateColorData();">
+	</select>
+
+	<div id="colorDataArea">
+	</div>
+
+<script id="baseColors" type="text/html">
+	{{# colors }}
+	        <option style="background-color: {{ . }};">{{ . }}</option>
+	{{/ colors }}
+</script>
+
+<script id="namedColor" type="text/html">
+	<option style="background-color: #{{ color }};" value="{{ id }}">{{ name }}</option>
+</script>
+
+<script id="colorData" type="text/html">
+	R: {{ r }}<br>
+	G: {{ g }}<br>
+	B: {{ b }}<br>
+	<div id="color" style="background-color: #{{ color }};"></div>
+</script>
+
+</body>
+</html>
